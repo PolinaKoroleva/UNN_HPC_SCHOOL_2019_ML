@@ -1,0 +1,3 @@
+ conda install xmltodict
+ 
+ python "C:\Program Files (x86)\IntelSWTools\openvino_2019.3.379\deployment_tools\tools\calibration_tool\calibrate.py" -c C:\UNN_HPC_SCHOOL_2019_ML\openvino_calibration\sdd_calibrate.yml -m C:\public\mobilenet-ssd\FP32 -s C:\UNN_HPC_SCHOOL_2019_ML -M "C:\Program Files (x86)\IntelSWTools\openvino_2019.3.379\deployment_tools\model_optimizer" --annotations C:\UNN_HPC_SCHOOL_2019_ML

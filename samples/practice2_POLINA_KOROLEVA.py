@@ -28,7 +28,7 @@ def main():
     log.info("Poli object detection!")
 
     detector = InferenceEngineDetector() 
-    imagePath = 'C:/UNN_HPC_SCHOOL_2019_ML/Images/dog.jpg' #build_argparse().parse_args()
+    imagePath = 'C:/UNN_HPC_SCHOOL_2019_ML/Images/dog2.jpg' #build_argparse().parse_args()
     image_source = cv2.imread(imagePath)
     #tmp = detector._prepare_image(image_source, h, w)
     tensor = detector.detect(image_source)
