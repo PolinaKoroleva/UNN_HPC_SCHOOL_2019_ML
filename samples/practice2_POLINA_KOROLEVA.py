@@ -31,11 +31,12 @@ def main():
     imagePath = 'C:/UNN_HPC_SCHOOL_2019_ML/Images/dog.jpg' #build_argparse().parse_args()
     image_source = cv2.imread(imagePath)
     #tmp = detector._prepare_image(image_source, h, w)
-    tmp = detector.detect(image_source)
-    #print(tmp.shape)
-    #cv2.imshow("Original image", tmp[2])
-    #cv2.waitKey(0)
-    #cv2.destroyAllWindows()
+    tensor = detector.detect(image_source)
+    image_final = detector.draw_detection(tensor,image_source)
+    #print(tmp)
+    cv2.imshow("Original image", image_final)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
     
     return 
 

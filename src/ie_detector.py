@@ -21,11 +21,14 @@ class InferenceEngineDetector:
         return
 
     def draw_detection(self, detections, img):
-    
-        #
-        # Add your code here
-        #
-        
+        #print(detections[0,0,1,:].shape)
+        #print(detections[0,0,:,:])
+        #print(val)
+       
+        for val in detections[0,0,:,:]:
+            print(val[6])
+            cv2.rectangle(img, (int(val[3]*img.shape[1]), int(val[4]*img.shape[0])), (int(val[5]*img.shape[1]), int(val[6]*img.shape[0])), (0,255,0), 10)
+            cv2.putText(img, str(val[1]), (int(val[3]*img.shape[1]), int(val[4]*img.shape[0]+20)), cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0,255,255), 2, cv2.LINE_AA)
         return img
 
     def _prepare_image(self, image, h, w):
@@ -42,9 +45,7 @@ class InferenceEngineDetector:
          
         blob = self._prepare_image(image,h,w)
         
-      #  output = self.exec_net.infer(inputs={input_blob: blob})
-      #  output = output[out_blob]
+        output = self.exec_net.infer(inputs={input_blob: blob})
+        output = output[out_blob]
         
-    
-        
-        return blob#output
+        return output
